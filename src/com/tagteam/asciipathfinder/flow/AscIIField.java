@@ -2,6 +2,7 @@ package com.tagteam.asciipathfinder.flow;
 
 import com.tagteam.asciipathfinder.flow.impl.SimplexWorldGenerator;
 import com.tagteam.asciipathfinder.flow.pathfinder.AStarPathfinder;
+import com.tagteam.asciipathfinder.flow.pathfinder.GreedyFirst;
 import com.tagteam.asciipathfinder.flow.pathfinder.Pathfinder;
 import com.tagteam.asciipathfinder.flow.pathfinder.SprayAndPray;
 import com.tagteam.asciipathfinder.playergame.Player;
@@ -30,7 +31,7 @@ public class AscIIField implements KeyEventDispatcher {
     this.generator = new SimplexWorldGenerator();
     fillMatrix();
     //this.pathfinder = new AStarPathfinder(this);
-    this.pathfinder = new SprayAndPray(this);
+    this.pathfinder = new GreedyFirst(this);
     this.player = new TestPlayer(this);
     this.lock = new LOCK();
     player.setPosition(new Position(0, 0), lock);
